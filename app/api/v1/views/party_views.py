@@ -33,23 +33,25 @@ def add_party():
         "data":[{"message":"success"}]
     })),201
 
-# @party_route.route('/update/<int:party_id>',methods=['PUT'])
-# def update_party(party_id):
-#     try:
-#         data = request.get_json(force=True)
-#     except:
-#         return make_response(jsonify({
-#             "status":400,
-#             "message":"wrong input"
-#         })),400
-#     id=party_id
-#     slogan = data["slogan"]
-#     title = data["title"]
-#     PARTY.update_party(id,title,slogan)
-#     return make_response(jsonify({
-#         "status":200,
-#         "data":[{"message":"success"}]
-#     })),200
+@party_route.route('/update/<int:party_id>',methods=['PUT'])
+def update_party(party_id):
+    try:
+        data = request.get_json(force=True)
+    except:
+        return make_response(jsonify({
+            "status":400,
+            "message":"wrong input"
+        })),400
+    id=party_id
+    name = data["name"]
+    hqaddress = data["hqaddress"]
+    logoUrl = data["logoUrl"]
+
+    PARTY.update_party(id,name,hqaddress,logoUrl)
+    return make_response(jsonify({
+        "status":200,
+        "data":[{"message":"success"}]
+    })),200
 
 # @party_route.route('/delete/<int:party_id>',methods=['DELETE'])
 # def delete_party(party_id):
