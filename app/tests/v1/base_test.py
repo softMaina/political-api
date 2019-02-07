@@ -22,6 +22,11 @@ class TestBaseClass(unittest.TestCase):
             'hqaddress':'Tuko Pamoja',
             'logoUrl':'www.youtube.com'
         }
+        self.OFFICE = {
+            'id':1,
+            'name':'ward',
+            'office_type':'mca'
+        }
 
         
     def tearDown(self):

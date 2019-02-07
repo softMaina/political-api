@@ -19,17 +19,19 @@ class TestParties(base_test.TestBaseClass):
 
         self.assertEqual(response.status_code, 201)
     
-    # add test to test an update of a political party
-    # def test_edit_party(self):
-    #     party = self.app_test_client.post('/api/v1/party/add',json=self.PARTY)
+    
+    def test_edit_party(self):
+        
+        response1 = self.app_test_client.post('/api/v1/party/add',json=self.PARTY)
 
-    #     response = self.app_test_client.put('/api/v1/party/update/1>',json=self.PARTY)
+        response = self.app_test_client.put('/api/v1/party/update/1',json=self.PARTY)
 
-    #     self.assertEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)
 
-     # def test_edit_party(self):
-    #     party = self.app_test_client.post('/api/v1/party/add',json=self.PARTY)
+    
+    def test_unexisting_office_endpoint(self):
 
-    #     response = self.app_test_client.put('/api/v1/party/update/1>',json=self.PARTY)
+        """ Test when unexisting url is provided """
+        response = self.app_test_client.get('api/v1/party/remove')
 
-    #     self.assertEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 404)

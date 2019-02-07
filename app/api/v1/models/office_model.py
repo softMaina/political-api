@@ -17,14 +17,14 @@ class Office(object):
     def get_offices(self):
         return self.office
 
-    # def update_office(self,office_id,name,office_type):
+    def update_office(self,office_id,name,office_type):
         
-    #     office = [task for task in self.office if task['id'] == office_id]
+        office = [task for task in self.office if task['id'] == office_id]
         
-    #     if len(office) == 0:
-    #         return abort(400)
-    #     office[0]['name'] = name
-    #     office[0]['office_type']= office_type
+        if len(office) == 0:
+            return abort(400)
+        office[0]['name'] = name
+        office[0]['office_type']= office_type
         
 
 
