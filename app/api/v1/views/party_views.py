@@ -53,10 +53,10 @@ def update_party(party_id):
         "data":[{"message":"success"}]
     })),200
 
-# @party_route.route('/delete/<int:party_id>',methods=['DELETE'])
-# def delete_party(party_id):
-#     PARTY.delete_party(party_id)
-#     return make_response(jsonify({
-#         "status":200,
-#         "data":[{"message":"sucessful"}]
-#     }))
+@party_route.route('/delete/<int:party_id>',methods=['DELETE'])
+def delete_party(party_id):
+    PARTY.delete_party(party_id)
+    return make_response(jsonify({
+        "status":200,
+        "data":[{"message":"sucessful"}]
+    }))

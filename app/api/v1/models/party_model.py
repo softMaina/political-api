@@ -29,10 +29,10 @@ class Party(object):
         party[0]['logoUrl']=logoUrl  
 
 
-    # def delete_party(self,party_id):
+    def delete_party(self,party_id):
 
-    #     party = [task for task in self.party if task['id'] == party_id]
+        party = [task for task in self.party if task['id'] == party_id]
 
-    #     if len(party) == 0:
-    #         abort(400)
-    #     self.party.remove(party[0])
+        if len(party) == 0:
+            abort(400)
+        self.party.remove(party[0])
