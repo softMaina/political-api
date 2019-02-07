@@ -5,6 +5,7 @@ class Party(object):
     def __init__(self):
         self.party = PARTIES
     
+    # create party
     def add_party(self,name,hqaddress,logoUrl):
         party={
             'id':len(self.party)+1,
