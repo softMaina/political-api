@@ -17,6 +17,7 @@ class Party(object):
 
     def get_parties(self):
         return self.party
+        
 
     def update_party(self,party_id,name,hqaddress,logoUrl):
         
