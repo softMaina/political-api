@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/softMaina/political-api.svg?branch=develop)](https://travis-ci.org/softMaina/political-api)
 # political-api
 
 This is an application to help electral commisions to register voters and politicians online and carry out the voting exercise
