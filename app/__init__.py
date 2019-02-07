@@ -9,8 +9,9 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
 
-    # from app.api.v1.views import party
+    from app.api.v1.views import party_views
 
-    # app.register_blueprint(party.party_route)
+    app.register_blueprint(party_views.party_route)
 
     return app
+    
