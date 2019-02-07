@@ -14,3 +14,4 @@ def create_app(config_name):
     app.register_blueprint(party_views.party_route)
 
     return app
+    
