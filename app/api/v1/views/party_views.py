@@ -4,6 +4,7 @@ from app.api.v1.models import party_model
 
 PARTY = party_model.Party()
 
+# return all the political parties
 party_route = Blueprint('party',__name__,url_prefix='/api/v1/party')
 @party_route.route('',methods=['GET'])
 def get_parties():
