@@ -32,6 +32,7 @@ def add_office():
         "status":201,
         "data":[{"message":"success"}]
     })),201
+    
 
 # @office_route.route('/update/<int:office_id>',methods=['PUT'])
 # def update_office(office_id):
