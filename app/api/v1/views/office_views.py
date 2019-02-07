@@ -6,13 +6,13 @@ OFFICE = office_model.Office()
 
 # return all the political parties
 office_route = Blueprint('office',__name__,url_prefix='/api/v1/office')
-# @office_route.route('',methods=['GET'])
-# def get_offices():
-#     data = OFFICE.get_offices()
-#     return make_response(jsonify({
-#         'status':200,
-#         'data':[{"party":data}]
-#     })),200
+@office_route.route('',methods=['GET'])
+def get_offices():
+    data = OFFICE.get_offices()
+    return make_response(jsonify({
+        'status':200,
+        'data':[{"party":data}]
+    })),200
 
 @office_route.route('/add',methods=['POST'])
 def add_office():
