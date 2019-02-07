@@ -19,6 +19,7 @@ class TestParties(base_test.TestBaseClass):
 
         self.assertEqual(response.status_code, 201)
     
+    # add test to test an update of a political party
     # def test_edit_party(self):
     #     party = self.app_test_client.post('/api/v1/party/add',json=self.PARTY)
 
