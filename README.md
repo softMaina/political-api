@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/softMaina/political-api.svg?branch=develop)](https://travis-ci.org/softMaina/political-api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/95ebc6a5f1ce41b4ca0e/maintainability)](https://codeclimate.com/github/softMaina/political-api/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/softMaina/political-api/badge.svg)](https://coveralls.io/github/softMaina/political-api)
+[![Coverage Status](https://coveralls.io/repos/github/softMaina/political-api/badge.svg?branch=develop)](https://coveralls.io/github/softMaina/political-api?branch=develop)
 # political-api
 
 This is an application to help electral commisions to register voters and politicians online and carry out the voting exercise
