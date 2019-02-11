@@ -6,13 +6,24 @@ OFFICE = office_model.Office()
 
 # return all the political parties
 office_route = Blueprint('office',__name__,url_prefix='/api/v1/office')
+
+home_route = Blueprint('',__name__,url_prefix='')
+@home_route.route('',methods=['GET'])
+def home_page():
+    return 'read https://github.com/softMaina/political-api for documentation'
+
+
 @office_route.route('',methods=['GET'])
 def get_offices():
     data = OFFICE.get_offices()
-    return make_response(jsonify({
-        'status':200,
-        'data':data
-    })),200
+    if not data:
+        return make_response(jsonify({"msg":"no offices created yet"}))
+    else:
+        return make_response(jsonify({
+            'status':200,
+            'data':data
+        })),200
+
 
 @office_route.route('/add',methods=['POST'])
 def add_office():
@@ -23,7 +34,8 @@ def add_office():
         return make_response(jsonify({
             "status":400,
             "message":"wrong input"
-        })),400  
+        })),400
+
     name = data["name"]
     office_type = data["office_type"]
 
@@ -33,6 +45,7 @@ def add_office():
         "data":data
     })),201
     
+
 
 @office_route.route('/update/<int:office_id>',methods=['PUT'])
 def update_office(office_id):
@@ -54,15 +67,22 @@ def update_office(office_id):
         "data":data
     })),200
 
-@office_route.route('/getoffice/<int:office_id>',methods=['GET'])
-def get_party(office_id):
 
+@office_route.route('/getoffice/<int:office_id>',methods=['GET'])
+def get_office(office_id):
+    
     data = OFFICE.get_specific_office(office_id)
 
-    return make_response(jsonify({
-        'status':200,
-        'data':data
-    })),200    
+    if not data:
+        return make_response(jsonify({
+            'status':400,
+            'msg': 'data not found'
+        }))
+    else:
+        return make_response(jsonify({
+            'status':200,
+            'data':data
+        })),200    
 
 
 

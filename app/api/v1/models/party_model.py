@@ -20,7 +20,7 @@ class Party(object):
         
     def get_specific_party(self, party_id):
          party = [task for task in self.party if task['id'] == party_id]
-         return self.party        
+         return party        
 
     def update_party(self,party_id,name,hqaddress,logoUrl):
         
