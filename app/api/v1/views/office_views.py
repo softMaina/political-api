@@ -65,6 +65,7 @@ def get_party(office_id):
     })),200    
 
 
+
 # @office_route.route('/delete/<int:office_id>',methods=['DELETE'])
 # def delete_office(office_id):
 #     OFFICE.delete_office(office_id)
