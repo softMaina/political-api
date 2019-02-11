@@ -11,7 +11,7 @@ def get_offices():
     data = OFFICE.get_offices()
     return make_response(jsonify({
         'status':200,
-        'data':[{"party":data}]
+        'data':data
     })),200
 
 @office_route.route('/add',methods=['POST'])
@@ -30,7 +30,7 @@ def add_office():
     OFFICE.add_office(name, office_type)
     return make_response(jsonify({
         "status":201,
-        "data":[{"message":"success"}]
+        "data":data
     })),201
     
 
@@ -51,7 +51,7 @@ def update_office(office_id):
     OFFICE.update_office(id,name,office_type)
     return make_response(jsonify({
         "status":200,
-        "data":[{"message":"success"}]
+        "data":data
     })),200
 
 @office_route.route('/getoffice/<int:office_id>',methods=['GET'])
@@ -61,7 +61,7 @@ def get_party(office_id):
 
     return make_response(jsonify({
         'status':200,
-        'data':[{"office":data}]
+        'data':data
     })),200    
 
 
