@@ -15,7 +15,8 @@ class Office(object):
         self.office.append(office)
 
     def get_offices(self):
-        return self.office
+        return self.office  
+
 
     def update_office(self,office_id,name,office_type):
         

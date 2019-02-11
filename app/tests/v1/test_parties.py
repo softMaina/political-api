@@ -18,8 +18,8 @@ class TestParties(base_test.TestBaseClass):
         response = self.app_test_client.post('/api/v1/party/add',json=self.PARTY)
 
         self.assertEqual(response.status_code, 201)
-    
-    
+        
+
     def test_edit_party(self):
         
         response1 = self.app_test_client.post('/api/v1/party/add',json=self.PARTY)
