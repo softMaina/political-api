@@ -34,7 +34,7 @@ Inside the virtual environment created above, run command: `coverage run --sourc
 - 2. Flask python framework
 
 ## Deployment
-[heroku] (https://political-api-v1.herokuapp.com)
+ (https://political-api-v1.herokuapp.com)
 
 ## Author
 Allan Maina
