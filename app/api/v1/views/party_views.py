@@ -33,6 +33,16 @@ def add_party():
         "data":[{"message":"success"}]
     })),201
 
+@party_route.route('/getparty/<int:party_id>',methods=['GET'])
+def get_party(party_id):
+    data = PARTY.get_specific_party(party_id)
+
+    return make_response(jsonify({
+        'status':200,
+        'data':[{"party":data}]
+    })),200    
+
+
 @party_route.route('/update/<int:party_id>',methods=['PUT'])
 def update_party(party_id):
     try:
