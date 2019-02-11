@@ -33,7 +33,6 @@ def add_party():
         "data":[{"message":"success"}]
     })),201
 
-
 @party_route.route('/getparty/<int:party_id>',methods=['GET'])
 def get_party(party_id):
     data = PARTY.get_specific_party(party_id)
