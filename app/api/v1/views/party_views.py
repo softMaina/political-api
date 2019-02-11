@@ -11,7 +11,7 @@ def get_parties():
     data = PARTY.get_parties()
     return make_response(jsonify({
         'status':200,
-        'data':[{"party":data}]
+        'data':data
     })),200
 @party_route.route('/add',methods=['POST'])
 def add_party():
@@ -30,7 +30,7 @@ def add_party():
     PARTY.add_party(name, hqaddress,logoUrl)
     return make_response(jsonify({
         "status":201,
-        "data":[{"message":"success"}]
+        "data":data
     })),201
 
 @party_route.route('/getparty/<int:party_id>',methods=['GET'])
@@ -39,7 +39,7 @@ def get_party(party_id):
 
     return make_response(jsonify({
         'status':200,
-        'data':[{"party":data}]
+        'data':data
     })),200    
 
 
@@ -60,7 +60,7 @@ def update_party(party_id):
     PARTY.update_party(id,name,hqaddress,logoUrl)
     return make_response(jsonify({
         "status":200,
-        "data":[{"message":"success"}]
+        "data":data
     })),200
 
 @party_route.route('/delete/<int:party_id>',methods=['DELETE'])
