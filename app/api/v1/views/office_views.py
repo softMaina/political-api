@@ -54,6 +54,17 @@ def update_office(office_id):
         "data":[{"message":"success"}]
     })),200
 
+@office_route.route('/getoffice/<int:office_id>',methods=['GET'])
+def get_party(office_id):
+
+    data = OFFICE.get_specific_office(office_id)
+
+    return make_response(jsonify({
+        'status':200,
+        'data':[{"office":data}]
+    })),200    
+
+
 # @office_route.route('/delete/<int:office_id>',methods=['DELETE'])
 # def delete_office(office_id):
 #     OFFICE.delete_office(office_id)
