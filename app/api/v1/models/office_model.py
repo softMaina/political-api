@@ -19,7 +19,7 @@ class Office(object):
     
     def get_specific_office(self, office_id):
         office = [task for task in self.office if task['id'] == office_id]
-        return self.office       
+        return office       
 
     def update_office(self,office_id,name,office_type):
         
