@@ -38,9 +38,9 @@ For this endpoint, minimum data required are as follows
 
  ```
  {
-    'name':string,
-    'hqaddress':string,
-    'logoUrl':string
+    "name":string,
+    "hqaddress":string,
+    "logoUrl":string
  }
  ```
 
@@ -49,8 +49,8 @@ For this endpoint, minimum data required are as follows
 
 ```
 {
-    'name' : String, 
-    'office_type' : String
+    "name" : String, 
+    "office_type" : String
  }
  ```
 
