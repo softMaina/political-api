@@ -4,6 +4,13 @@ from app.api.v1.models import office_model
 
 OFFICE = office_model.Office()
 
+# home page url
+home_route = Blueprint('',__name__,url_prefix='')
+@home_route.route('',methods=['GET'])
+def get_home():
+    return "read the documentation here https://github.com/softMaina/political-api/blob/develop/README.md"
+
+
 # return all the political parties
 office_route = Blueprint('office',__name__,url_prefix='/api/v1/office')
 @office_route.route('',methods=['GET'])

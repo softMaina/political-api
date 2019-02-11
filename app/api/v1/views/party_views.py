@@ -36,7 +36,7 @@ def add_party():
 @party_route.route('/getparty/<int:party_id>',methods=['GET'])
 def get_party(party_id):
     data = PARTY.get_specific_party(party_id)
-
+    
     return make_response(jsonify({
         'status':200,
         'data':data
