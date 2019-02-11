@@ -17,7 +17,6 @@ class Office(object):
     def get_offices(self):
         return self.office  
 
-
     def update_office(self,office_id,name,office_type):
         
         office = [task for task in self.office if task['id'] == office_id]
