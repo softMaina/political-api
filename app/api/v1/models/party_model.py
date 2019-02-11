@@ -18,6 +18,9 @@ class Party(object):
     def get_parties(self):
         return self.party
         
+    def get_specific_party(self, party_id):
+         party = [task for task in self.party if task['id'] == party_id]
+         return self.party        
 
     def update_party(self,party_id,name,hqaddress,logoUrl):
         
