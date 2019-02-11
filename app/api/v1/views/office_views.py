@@ -14,6 +14,16 @@ def get_offices():
         'data':[{"party":data}]
     })),200
 
+@office_route.route('/getoffice/<int:office_id>',methods=['GET'])
+def get_party(office_id):
+    data = OFFICE.get_specific_office(office_id)
+
+    return make_response(jsonify({
+        'status':200,
+        'data':[{"party":data}]
+    })),200    
+
+
 @office_route.route('/add',methods=['POST'])
 def add_office():
   
