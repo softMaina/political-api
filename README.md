@@ -11,8 +11,10 @@ This is an application to help electral commisions to register voters and politi
 | ------------- | ------------- |---------|
 | Get  | api/v1/office  | used by user and admin to get all offices |
 | Post  | api/v1/office/add  | used by admin to add office |
+| Get | api/v1/office/getoffice/:id| used by admin to get a specific office |
 | Put | api/v1/office/update/:id | used by admin to update office|
 | Get | api/v1/party | used by admin and user to get all parties |
+| Get | api/v1/party/getparty/:id | used by user and admin to get a specific party |
 | Post | api/v1/party/add | used by admin to add new party |
 | Put | api/v1/party/update/:id | used by admin to patch a party |
 | Delete | api/v1/party/delete/:id | used by admin to delete a party |
