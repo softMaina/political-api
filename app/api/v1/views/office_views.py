@@ -58,11 +58,17 @@ def update_office(office_id):
 def get_party(office_id):
 
     data = OFFICE.get_specific_office(office_id)
+    if not data:
+        return make_response(jsonify({
+            'status':400,
+            'msg':'data doesnt exists'
+        }))
+    else:
 
-    return make_response(jsonify({
-        'status':200,
-        'data':data
-    })),200    
+        return make_response(jsonify({
+            'status':200,
+            'data':data
+        })),200    
 
 
 
