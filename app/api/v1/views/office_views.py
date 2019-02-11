@@ -25,6 +25,7 @@ def get_offices():
         })),200
 
 
+
 @office_route.route('/add',methods=['POST'])
 def add_office():
   
