@@ -35,17 +35,17 @@ Inside the virtual environment created above, run command: `coverage run --sourc
 ## Party Endpoints
 For this endpoint, minimum data required are as follows
  `{
-  "name":string,
-  "hqaddress":string,
-  "logoUrl":string
+  'name':string,
+  'hqaddress':string,
+  'logoUrl':string
  }`
 
 ## Office Endpoints
 For this endpoint, minimum data required are as follows
- `{
-   “name” : String, 
-   “office_type” : String
- }`
+ `{`
+   `'name' : String,` 
+   `'office_type' : String`
+ `}`
 
 ## Technologies used
 - 1. Pytests for running tests
