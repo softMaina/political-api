@@ -35,3 +35,11 @@ class TestParties(base_test.TestBaseClass):
         response = self.app_test_client.get('api/v1/party/remove')
 
         self.assertEqual(response.status_code, 404)
+
+    def test_get_specific_party(self):
+        """ Test endpoint to return only one office """
+        addParty = self.app_test_client.post('/api/v1/party/add',json=self.PARTY)
+
+        response = self.app_test_client.get('/api/v1/party/getparty/1',json=self.PARTY)
+
+        self.assertEqual(response.status_code,200)
