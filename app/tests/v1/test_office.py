@@ -18,6 +18,7 @@ class TestOffices(base_test.TestBaseClass):
         response = self.app_test_client.post('/api/v1/office/add',json=self.OFFICE)
 
         self.assertEqual(response.status_code, 201)
+
     
     def test_unexisting_office_endpoint(self):
 
