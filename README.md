@@ -24,12 +24,28 @@ This is an application to help electral commisions to register voters and politi
 - 2. clone this repo `git clone https://github.com/softMaina/political-api.git` to have a copy locally
 - 3. `cd political-api`
 - 4. create a virtual environment for the repo `virtualenv venv`
+- 5. activate your virtual environment `source venv/bin/activate`
 - 5. Install dependencies from the requirements.txt file `pip3 install -r requirements.txt`
 - 6. Export environment variables to your environment `export FLASK_APP="run.py"`
-- 7. Run the application using flask command `flask run` or `using python3 python3 run.py`
+- 7. Run the application using flask command `flask run`
 
 ## Running tests
 Inside the virtual environment created above, run command: `coverage run --source=app.api.v1 -m pytest app/tests/v1 -v -W error::UserWarning && coverage report`
+
+## Party Endpoints
+For this endpoint, minimum data required are as follows
+ `{
+  "name":string,
+  "hqaddress":string,
+  "logoUrl":string
+ }`
+
+## Office Endpoints
+For this endpoint, minimum data required are as follows
+ `{
+   “name” : String, 
+   “office_type” : String
+ }`
 
 ## Technologies used
 - 1. Pytests for running tests
