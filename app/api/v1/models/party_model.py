@@ -14,6 +14,7 @@ class Party(object):
             'logoUrl':logoUrl
         }
         self.party.append(party)
+        return party
 
     def get_parties(self):
         return self.party
@@ -30,7 +31,9 @@ class Party(object):
             return abort(400)
         party[0]['name'] = name
         party[0]['hqaddress']= hqaddress
-        party[0]['logoUrl']=logoUrl  
+        party[0]['logoUrl']=logoUrl
+
+        return party  
 
 
     def delete_party(self,party_id):
@@ -40,3 +43,5 @@ class Party(object):
         if len(party) == 0:
             abort(400)
         self.party.remove(party[0])
+
+        return party
