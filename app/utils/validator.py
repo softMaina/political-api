@@ -31,3 +31,29 @@ def validate_strings(data):
     if not isinstance(data, str):
         return False
     return True
+
+def validate_office_json_keys(request):
+    request_keys = ["name", "office_type"]
+    errors = [] #define an error arror array
+    for key in request_keys:
+        if not key in request.json:
+            errors.append(key)
+    return errors
+
+def validate_party_json_keys(request):
+    request_keys = ["name","hqaddress","logoUrl"]
+
+    errors = []
+    for key in request_keys:
+        if not key in request.json:
+            errors.append(key)
+    return errors
+
+def format_response(status_code, msg, data=list()):
+
+    response = {
+        "status":status_code,
+        "message": msg,
+        "data":data
+    }
+    return make_response(jsonify(response),status_code)
