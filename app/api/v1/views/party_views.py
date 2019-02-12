@@ -9,11 +9,6 @@ party_route = Blueprint('party',__name__,url_prefix='/api/v1/party')
 @party_route.route('',methods=['GET'])
 def get_parties():
     data = PARTY.get_parties()
-    # return make_response(jsonify({
-    #     'status':200,
-    #     'data':data
-    # })),200
-
     if data:
         return format_response(200,"request was successful",data)
     
@@ -74,3 +69,4 @@ def delete_party(party_id):
         "status":200,
         "data":[{"message":"sucessful"}]
     }))
+
