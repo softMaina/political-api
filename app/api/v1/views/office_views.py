@@ -1,6 +1,7 @@
 
 from flask import Flask, Blueprint, request, make_response, jsonify
 from app.api.v1.models import office_model
+from app.utils.validator import format_response
 
 OFFICE = office_model.Office()
 
@@ -9,10 +10,9 @@ office_route = Blueprint('office',__name__,url_prefix='/api/v1/office')
 @office_route.route('',methods=['GET'])
 def get_offices():
     data = OFFICE.get_offices()
-    return make_response(jsonify({
-        'status':200,
-        'data':data
-    })),200
+    if data:
+        return format_response(200,"request successful",data)
+    return format_response(400,"There are no registered political offices")
 
 @office_route.route('/add',methods=['POST'])
 def add_office():
@@ -48,11 +48,8 @@ def update_office(office_id):
     office_type = data["office_type"]
   
 
-    OFFICE.update_office(id,name,office_type)
-    return make_response(jsonify({
-        "status":200,
-        "data":data
-    })),200
+    office = OFFICE.update_office(id,name,office_type)
+    return format_response(200,"updated successfully",office)
 
 @office_route.route('/getoffice/<int:office_id>',methods=['GET'])
 def get_party(office_id):

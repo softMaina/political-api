@@ -30,3 +30,5 @@ class Office(object):
             return abort(400)
         office[0]['name'] = name
         office[0]['office_type']= office_type
+        
+        return office
