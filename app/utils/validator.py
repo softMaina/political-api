@@ -16,3 +16,18 @@ def check_is_valid_url(url):
                url):
        return True
     return False
+
+def sanitize_input(input_data):
+    """ check if input is of alphanumeric characters """
+    if input_data.isalpha() == False:
+        return False
+
+def validate_ints(data):
+    """ensures that data is of integer data type"""
+    if not isinstance(data, int):
+        return False
+    return True
+def validate_strings(data):
+    if not isinstance(data, str):
+        return False
+    return True
