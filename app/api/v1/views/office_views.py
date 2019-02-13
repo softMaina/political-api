@@ -27,9 +27,9 @@ def add_office():
         return return_error(400, "missing keys {}".format(json_key_errors))
 
     try:
-        data = request.get_json(force=True)
+        data = request.get_json()
     except:
-        return return_error(400,"wrong input")
+        return return_error(400,"ensure your content_type is application/json")
 
     name = data["name"]
     office_type = data["office_type"]
@@ -59,11 +59,11 @@ def update_office(office_id):
         return return_error(400, "invalid keys")
 
     try:
-        data = request.get_json(force=True)
+        data = request.get_json()
     except:
         return make_response(jsonify({
             "status":400,
-            "message":"wrong input"
+            "message":"ensure your content_type is application/json"
         })),400
     id=office_id
     name = data["name"]

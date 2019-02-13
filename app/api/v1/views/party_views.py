@@ -27,11 +27,11 @@ def add_party():
         return return_error(400, "missing keys {}".format(json_key_errors))
 
     try:
-        data = request.get_json(force=True)
+        data = request.get_json()
     except:
         return make_response(jsonify({
             "status":400,
-            "message":"wrong input"
+            "message":"ensure your content type is application/json"
         })),400  
     name = data["name"]
     hqaddress = data["hqaddress"]
@@ -70,7 +70,7 @@ def update_party(party_id):
     try:
         data = request.get_json(force=True)
     except:
-        return format_response(400,"Wrong input, ensure data is in json format")
+        return format_response(400,"ensure your content_type is application/json")
     id=party_id
     name = data["name"]
     hqaddress = data["hqaddress"]
