@@ -24,7 +24,7 @@ def add_office():
     json_key_errors=validate_office_json_keys(request)
 
     if json_key_errors:
-        return return_error(400, "invalid keys {}".format(json_key_errors))
+        return return_error(400, "missing keys {}".format(json_key_errors))
 
     try:
         data = request.get_json(force=True)
@@ -42,10 +42,10 @@ def add_office():
         return return_error(400, "Office_type should be of a string data type")
 
 
-    OFFICE.add_office(name, office_type)
+    office = OFFICE.add_office(name, office_type)
     return make_response(jsonify({
         "status":201,
-        "data":data
+        "data":office
     })),201
     
 

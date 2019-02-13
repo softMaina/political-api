@@ -13,6 +13,7 @@ class Office(object):
             'office_type':office_type
         }
         self.office.append(office)
+        return office
 
     def get_offices(self):
         return self.office  
