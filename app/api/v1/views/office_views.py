@@ -88,16 +88,10 @@ def get_party(office_id):
 
     data = OFFICE.get_specific_office(office_id)
     if not data:
-        return make_response(jsonify({
-            'status':400,
-            'msg':'data doesnt exists'
-        }))
+        return return_error(400,"Data was not found")
     else:
 
-        return make_response(jsonify({
-            'status':200,
-            'data':data
-        })),200    
+        return format_response(200,"retrieved party successfully",data) 
 
 
 
