@@ -2,6 +2,8 @@
 from flask import Flask, Blueprint, request, make_response, jsonify
 from app.api.v1.models import party_model
 from app.utils.validator import sanitize_input,validate_party_json_keys,format_response
+from app.utils.validator import validate_strings,validate_ints,return_error
+
 PARTY = party_model.Party()
 
 # return all the political parties
@@ -18,6 +20,12 @@ def get_parties():
 @party_route.route('/add',methods=['POST'])
 def add_party():
   
+     # validate json keys
+    json_key_errors=validate_party_json_keys(request)
+
+    if json_key_errors:
+        return return_error(400, "invalid keys")
+
     try:
         data = request.get_json(force=True)
     except:
@@ -28,6 +36,17 @@ def add_party():
     name = data["name"]
     hqaddress = data["hqaddress"]
     logoUrl = data["logoUrl"]
+
+        # validate request data
+    if(validate_strings(name) == False):
+        return return_error(400,"Name should be of a string data type")
+    
+    if(validate_strings(hqaddress) == False):
+        return return_error(400, "hqaddress should be of a string data type")
+
+    if(validate_strings(logoUrl) == False):
+        return return_error(400, "logoUrl should be of a string data type")
+
 
     party = PARTY.add_party(name, hqaddress,logoUrl)
     if party:
@@ -47,6 +66,7 @@ def get_party(party_id):
 
 @party_route.route('/update/<int:party_id>',methods=['PUT'])
 def update_party(party_id):
+
     try:
         data = request.get_json(force=True)
     except:
