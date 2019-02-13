@@ -24,7 +24,7 @@ def add_office():
     json_key_errors=validate_office_json_keys(request)
 
     if json_key_errors:
-        return return_error(400, "invalid keys")
+        return return_error(400, "invalid keys {}".format(json_key_errors))
 
     try:
         data = request.get_json(force=True)
@@ -92,13 +92,3 @@ def get_party(office_id):
     else:
 
         return format_response(200,"retrieved party successfully",data) 
-
-
-
-# @office_route.route('/delete/<int:office_id>',methods=['DELETE'])
-# def delete_office(office_id):
-#     OFFICE.delete_office(office_id)
-#     return make_response(jsonify({
-#         "status":200,
-#         "data":[{"message":"sucessful"}]
-#     }))

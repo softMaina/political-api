@@ -9,8 +9,8 @@ class Party(object):
     def add_party(self,name,hqaddress,logoUrl):
         party={
             'id':len(self.party)+1,
-            'NAME':name,
-            'slogan':hqaddress,
+            'name':name,
+            'hqaddress':hqaddress,
             'logoUrl':logoUrl
         }
         self.party.append(party)

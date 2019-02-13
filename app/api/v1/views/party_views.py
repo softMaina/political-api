@@ -1,5 +1,5 @@
 
-from flask import Flask, Blueprint, request, make_response, jsonify
+from flask import Flask, Blueprint, request, make_response, jsonify,abort
 from app.api.v1.models import party_model
 from app.utils.validator import sanitize_input,validate_party_json_keys,format_response
 from app.utils.validator import validate_strings,validate_ints,return_error
@@ -24,7 +24,7 @@ def add_party():
     json_key_errors=validate_party_json_keys(request)
 
     if json_key_errors:
-        return return_error(400, "invalid keys")
+        return return_error(400, "invalid keys {}".format(json_key_errors))
 
     try:
         data = request.get_json(force=True)
