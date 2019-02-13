@@ -77,16 +77,10 @@ def update_party(party_id):
     logoUrl = data["logoUrl"]
 
     PARTY.update_party(id,name,hqaddress,logoUrl)
-    return make_response(jsonify({
-        "status":200,
-        "data":data
-    })),200
+    return format_response(200,"updated successfully",data)
 
 @party_route.route('/delete/<int:party_id>',methods=['DELETE'])
 def delete_party(party_id):
     PARTY.delete_party(party_id)
-    return make_response(jsonify({
-        "status":200,
-        "data":[{"message":"sucessful"}]
-    }))
+    return format_response(200,"deleted successfully")
 
