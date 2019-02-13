@@ -57,3 +57,4 @@ def format_response(status_code, msg, data=list()):
         "data":data
     }
     return make_response(jsonify(response),status_code)
+

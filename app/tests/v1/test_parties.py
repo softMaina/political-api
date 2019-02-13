@@ -43,3 +43,15 @@ class TestParties(base_test.TestBaseClass):
         response = self.app_test_client.get('/api/v1/party/getparty/1',json=self.PARTY)
 
         self.assertEqual(response.status_code,200)
+
+
+    def test_party_with_int_name(self):
+        """Test endpoint to ensure it doesnt accept integer for name """
+        response = self.app_test_client.post('/api/v1/party/add',json=self.wrong_party_name)
+
+        self.assertEqual(response.status_code, 400)
+    def test_update_party_with_wrong_url(self):
+
+        response = self.app_test_client.put('/api/v1/party/update/k',json=self.PARTY)
+
+        self.assertEqual(response.status_code, 404)

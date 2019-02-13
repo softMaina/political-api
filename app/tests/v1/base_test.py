@@ -27,6 +27,27 @@ class TestBaseClass(unittest.TestCase):
             'name':'ward',
             'office_type':'mca'
         }
+        self.wrong_office_name = {
+            'id':1,
+            'name':2,
+            'office_type':'federal'
+        }
+        self.wrong_party_name = {
+            'id':1,
+            'name':2,
+            'hqaddress':'Tuko pamoja',
+            'logoUrl':'www.youtube.com'
+        }
+        self.wrong_office_type = {
+            'id':1,
+            'name':'urp',
+            'office_type':3
+        }
+        self.invalid_keys = {
+            'id':1,
+            'names':'urp',
+            'office_type':'neeat'
+        }
 
         
     def tearDown(self):
