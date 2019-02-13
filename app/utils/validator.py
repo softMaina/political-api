@@ -34,7 +34,7 @@ def validate_strings(data):
 
 def validate_office_json_keys(request):
     request_keys = ["name", "office_type"]
-    errors = [] #define an error arror array
+    errors = []
     for key in request_keys:
         if not key in request.json:
             errors.append(key)
@@ -48,6 +48,7 @@ def validate_party_json_keys(request):
         if not key in request.json:
             errors.append(key)
     return errors
+
 
 def format_response(status_code, msg, data=list()):
 

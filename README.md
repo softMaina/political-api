@@ -4,7 +4,7 @@
 
 # political-api
 
-This is an application to help electral commisions to register voters and politicians online and carry out the voting exercise
+This is an application to help electral commisions to register voters and candidates online and carry out the voting exercise with transparency
 
 ## EndPoints
 

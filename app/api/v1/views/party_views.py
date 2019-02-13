@@ -67,9 +67,6 @@ def get_party(party_id):
 @party_route.route('/update/<int:party_id>',methods=['PUT'])
 def update_party(party_id):
 
-    if(validate_ints(party_id) == False):
-        return return_error(400, "wrong parameters passed")
-
     try:
         data = request.get_json(force=True)
     except:
