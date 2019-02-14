@@ -27,7 +27,7 @@ def add_party():
         return return_error(400, "missing keys {}".format(json_key_errors))
 
     try:
-        data = request.get_json()
+        data = request.get_json(force=True)
     except:
         return make_response(jsonify({
             "status":400,

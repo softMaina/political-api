@@ -4,6 +4,7 @@ from flask import Flask
 from instance.config import config
 from app.utils.validator import return_error
 
+
 # handle 405 errors
 def handle_405_error(err):
     return return_error(405,"method not allowed")
@@ -31,7 +32,6 @@ def create_app(config_name):
     from app.api.v1.views import party_views
     from app.api.v1.views import office_views
 
-
     app.register_blueprint(party_views.party_route)
     
     app.register_blueprint(office_views.office_route)
@@ -45,5 +45,5 @@ def create_app(config_name):
     app.register_error_handler(400,handle_400_error)
     app.register_error_handler(401,handle_401_error)
 
-
+    
     return app
