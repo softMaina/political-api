@@ -1,0 +1,98 @@
+FORMAT: 1A
+HOST: https://political-api-v1.herokuapp.com/api/v1
+
+# Political API 
+
+Political is an application that provides a platform to carry out online voting.
+Candidates can register and express their political aspirations. Voters can then 
+vote for their candidates within the platform
+
+## Parties collections [/party]
+
+### List All Parties [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "string",
+                "hqaddress": "string",
+                "logoUrl":"string"
+            }
+        ]
+
+
+### Create a New Party [POST]
+
+Create a new party
+
++ Request (application/json)
+
+         {
+                "name": "string",
+                "hqaddress": "string",
+                "logoUrl":"string"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "status": 201,
+                "data": [
+                    {
+                "name": "string",
+                "office_type": "string"
+                 }
+                ]
+            }
+
+## Office collections [/office]
+
+### List All Offices [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "string",
+                "office_type": "string"
+            }
+        ]
+
+
+### Create a New Office [POST]
+
+Create a new Office
+
++ Request (application/json)
+
+         {
+         
+                "name": "string",
+                "office_type": "string"
+            
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "status": 201,
+                "data": [
+                    {
+                "name": "string",
+                "office_type": "string"
+                 }
+                ]
+            }
