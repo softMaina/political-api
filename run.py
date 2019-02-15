@@ -9,8 +9,8 @@ app = create_app('development')
 def handle_error(e):
     if request.mimetype != 'application/json':
         return jsonify({
-            "error":str(e),
-            "msg":"data must be of mimetype application/json"
+            "status":406,
+            "message":"data must be of mimetype application/json"
         }),406
 
 if __name__ == '__main__':
