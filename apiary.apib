@@ -1,54 +1,37 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: https://political-api-v1.herokuapp.com/api/v1
 
-# softMaina 
+# Political API 
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Political is an application that provides a platform to carry out online voting.
+Candidates can register and express their political aspirations. Voters can then 
+vote for their candidates within the platform
 
-## Questions Collection [/questions]
+## Parties collections [/party]
 
-### List All Questions [GET]
+### List All Parties [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
+                "name": "string",
+                "hqaddress": "string",
+                "logoUrl":"string"
             }
         ]
 
-### Create a New Question [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### Create a New Party [POST]
+
+Create a new party
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+         {
+                "name": "string",
+                "hqaddress": "string",
+                "logoUrl":"string"
         }
 
 + Response 201 (application/json)
@@ -60,21 +43,56 @@ form of choices.
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+                "status": 201,
+                "data": [
                     {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
+                "name": "string",
+                "office_type": "string"
+                 }
+                ]
+            }
+
+## Office collections [/office]
+
+### List All Offices [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "string",
+                "office_type": "string"
+            }
+        ]
+
+
+### Create a New Office [POST]
+
+Create a new Office
+
++ Request (application/json)
+
+         {
+         
+                "name": "string",
+                "office_type": "string"
+            
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "status": 201,
+                "data": [
+                    {
+                "name": "string",
+                "office_type": "string"
+                 }
                 ]
             }
