@@ -41,7 +41,12 @@ def add_office():
     if(validate_strings(office_type) == False):
         return return_error(400, "Office_type should be of a string data type")
 
+    if(name == ""):
+        return return_error(400, "name cannot be empty")
 
+    if(office_type == ""):
+        return return_error(400, "office type cannot be empty")
+        
     office = OFFICE.add_office(name, office_type)
     return make_response(jsonify({
         "status":201,
@@ -69,6 +74,12 @@ def update_office(office_id):
     name = data["name"]
     office_type = data["office_type"]
   
+    if(name == ""):
+        return return_error(400, "name cannot be empty")
+
+    if(office_type == ""):
+        return return_error(400, "office type cannot be empty")
+    
      # validate request data
     if(validate_strings(name) == False):
         return return_error(400,"Name should be of a string data type")

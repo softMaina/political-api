@@ -1,8 +1,8 @@
 
 from flask import Flask, Blueprint, request, make_response, jsonify,abort
 from app.api.v1.models import party_model
-from app.utils.validator import sanitize_input,validate_party_json_keys,format_response
-from app.utils.validator import validate_strings,validate_ints,return_error
+from app.utils.validator import sanitize_input,validate_party_json_keys,format_response, check_special_charachers
+from app.utils.validator import validate_strings,validate_ints,return_error, check_duplication
 
 PARTY = party_model.Party()
 
@@ -37,6 +37,17 @@ def add_party():
     hqaddress = data["hqaddress"]
     logoUrl = data["logoUrl"]
 
+    if(name == ""):
+        return return_error(400, "name cannot be empty")
+
+    if(hqaddress == ""):
+        return return_error(400, "hqaddress cannot be empty")
+    
+    if(logoUrl == ""):
+        return return_error(400, "logoUrl cannot be empty")
+
+    if(check_duplication(name) == False):
+        return return_error(400, "Name already exists")
         # validate request data
     if(validate_strings(name) == False):
         return return_error(400,"Name should be of a string data type")
@@ -66,7 +77,7 @@ def get_party(party_id):
 
 @party_route.route('/update/<int:party_id>',methods=['PUT'])
 def update_party(party_id):
-
+    
     try:
         data = request.get_json(force=True)
     except:
@@ -75,6 +86,13 @@ def update_party(party_id):
     name = data["name"]
     hqaddress = data["hqaddress"]
     logoUrl = data["logoUrl"]
+
+    if(name == ""):
+        return return_error(400, "name cannot be empty")
+
+    if(hqaddress == ""):
+        return return_error(400, "hqaddress cannot be empty")
+
 
     PARTY.update_party(id,name,hqaddress,logoUrl)
     return format_response(200,"updated successfully",data)

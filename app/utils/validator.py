@@ -1,6 +1,6 @@
 import re
 from flask import jsonify, make_response
-
+from app.api.v1.models import party_model
 
 def return_error(status_code, message):
     """ function to format response """
@@ -47,6 +47,8 @@ def validate_party_json_keys(request):
     for key in request_keys:
         if not key in request.json:
             errors.append(key)
+        if key not in request_keys:
+            errors.append(key)
     return errors
 
 
@@ -59,3 +61,17 @@ def format_response(status_code, msg, data=list()):
     }
     return make_response(jsonify(response),status_code)
 
+def check_duplication(party_name):
+    party = party_model.PARTIES
+
+    for x in party:
+        if party[0]['name'] == party_name:
+            return False
+    return True
+
+def check_special_charachers(user_input):
+
+    if re.match(r'?/><.,":;|\[]{}=_-)(*&^%$#@!+', user_input):
+        return False
+    
+    return True
